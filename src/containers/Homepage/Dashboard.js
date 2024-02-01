@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import PersonalizationQuiz from "../components/PersonalizationQuiz";
+import PersonalizationQuiz from "../../components/PersonalizationQuiz";
 
 const Wrapper = styled.div`
   padding: 2rem 1rem;

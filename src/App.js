@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import Dashboard from "./Homepage/Dashboard";
-import ArticleFeed from "./Homepage/ArticleFeed";
+import Dashboard from "./containers/Homepage/Dashboard";
+import ArticleFeed from "./containers/Homepage/ArticleFeed";
 
 const PageWrapper = styled.div`
   padding: 2rem;
