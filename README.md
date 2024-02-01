@@ -27,3 +27,6 @@ The website is deployed using GitHub pages. The site should only be deployed fro
 3. Run the deployment script: `npm run deploy`
 4. Deployment might take a few minutes. To check that everything is ok, go to the Actions tab on GitHub (https://github.com/lauracastrovenegas/adaptive-stories/actions).
 5. Once deployment is finished, you should be able to see changes reflected on the website: https://lauracastrovenegas.github.io/adaptive-stories/
+
+## Styled-Components
+Docs: https://styled-components.com/docs/basics
