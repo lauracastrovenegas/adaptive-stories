@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/adaptive-stories/static/css/main.e6c13ad2.css",
+    "main.js": "/adaptive-stories/static/js/main.88baa3e5.js",
+    "index.html": "/adaptive-stories/index.html",
+    "main.e6c13ad2.css.map": "/adaptive-stories/static/css/main.e6c13ad2.css.map",
+    "main.88baa3e5.js.map": "/adaptive-stories/static/js/main.88baa3e5.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e6c13ad2.css",
+    "static/js/main.88baa3e5.js"
+  ]
+}
