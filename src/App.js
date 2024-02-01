@@ -1,5 +1,7 @@
 import React from "react";
 import styled from "styled-components";
+import Dashboard from "./Homepage/Dashboard";
+import ArticleFeed from "./Homepage/ArticleFeed";
 
 const PageWrapper = styled.div`
   padding: 2rem;
@@ -8,7 +10,8 @@ const PageWrapper = styled.div`
 const App = () => {
   return (
     <PageWrapper>
-      Out Site
+      <Dashboard/>
+      <ArticleFeed/>
     </PageWrapper>
   );
 }
