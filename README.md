@@ -1,70 +1,32 @@
-# Getting Started with Create React App
+# Adaptive Stories
+Live Site: https://lauracastrovenegas.github.io/adaptive-stories/
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Set up the project on your computer
+1. Clone the GitHub repository on your local machine by running: `git clone https://github.com/lauracastrovenegas/adaptive-stories.git` in the directory you want it to live in.
+2. After cloning is complete, navigate to the project file: `cd adaptive-stories`.
+3. Run `npm install` to install dependencies.
+4. Now you're ready to code!
 
-## Available Scripts
+Make sure to create a new branch to make any changes to avoid committing directly to `main`.
 
-In the project directory, you can run:
+## How to run the website locally on your computer
 
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+1. Open the terminal and navigate to the project file: `cd adaptive-stories`.
+2. Run `npm start` to run the website on development mode.
+3. Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
 
-### `npm test`
+## Deploying the site after making changes
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+The website is deployed using GitHub pages. The site should only be deployed from the `main` branch, so make sure `main` is updated with any of your changes before deploying.
 
-### `npm run build`
+1. Go to the `main` branch: `git checkout main`
+2. Make sure `main` is updated with any changes you want to be included in the deployment
+3. Run the deployment script: `npm run deploy`
+4. Deployment might take a few minutes. To check that everything is ok, go to the Actions tab on GitHub (https://github.com/lauracastrovenegas/adaptive-stories/actions).
+5. Once deployment is finished, you should be able to see changes reflected on the website: https://lauracastrovenegas.github.io/adaptive-stories/
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Styled-Components
+Docs: https://styled-components.com/docs/basics
