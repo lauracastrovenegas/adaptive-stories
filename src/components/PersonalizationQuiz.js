@@ -8,6 +8,7 @@ const Wrapper = styled.div`
   border: 1px solid grey;
   border-radius: 15px;
   margin: 2rem;
+  margin: 2rem auto;
 `;
 
 const PersonalizationQuiz = () => {
