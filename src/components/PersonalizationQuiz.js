@@ -40,6 +40,7 @@ const events = [
 ]
 
 const Wrapper = styled.div`
+  flex: 2;
   display: ${props => props.hidden ? "none" : "flex"};
   flex-direction: column;
   gap: 20px;
