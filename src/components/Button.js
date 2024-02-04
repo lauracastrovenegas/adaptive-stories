@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import {theme} from '../theme.ts';
+import {theme} from '../theme';
 
 const StyledButton = styled.button`
   background-color: ${theme.color.blue};
@@ -23,8 +23,12 @@ const StyledButton = styled.button`
 
   &.secondary {
     background-color: white;
-    color: black;
-    border: 1px solid gray;
+    color: ${theme.color.blue};
+    border: 1px solid ${theme.color.blue};
+
+    &:hover {
+      color: ${theme.color.blueDark};
+    }
   }
 `;
 
