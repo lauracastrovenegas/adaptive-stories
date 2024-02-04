@@ -50,7 +50,6 @@ const Wrapper = styled.div`
   margin: 2rem;
   margin: 2rem auto;
   box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.30);
-  background-color: #f9f9f9;
 
   h3 {
     font-family: 'Libre Franklin', sans-serif;
@@ -93,7 +92,12 @@ const Timeline = styled.div`
 
     p {
       font-size: 14px;
-      line-height: 1;
+      line-height: normal;
+      margin: 1rem 0;
+    }
+
+    span {
+      font-weight: 700;
     }
 
     :hover {
@@ -102,7 +106,7 @@ const Timeline = styled.div`
   }
 
   .date {
-    font-size: 12px;
+    display: none;
   }
 
   .icon {
@@ -160,7 +164,7 @@ const PersonalizationQuiz = ({ setPersonalizationOptions }) => {
                 textClassName={"textBox" + (idx === dateSelected ? " selected" : "")}
                 onTimelineElementClick={() => idx === dateSelected ? setDateSelected(-1) : setDateSelected(idx)}
               >
-                <p>{event.title}</p>
+                <p><span>{event.date}</span> - {event.title}</p>
               </VerticalTimelineElement>
             ))}
           </VerticalTimeline>

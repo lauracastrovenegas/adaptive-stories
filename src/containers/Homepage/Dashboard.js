@@ -4,7 +4,12 @@ import PersonalizationQuiz from "../../components/PersonalizationQuiz";
 import Timeline from "../../components/Timeline";
 
 const Wrapper = styled.div`
-  padding: 2rem 1rem;
+  padding: 0rem 1rem 2rem 1rem;
+
+  h1 {
+    font-weight: 500;
+    font-size: 3rem;
+  }
 `;
 
 const Top = styled.div`

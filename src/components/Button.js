@@ -8,8 +8,8 @@ const StyledButton = styled.button`
   border-radius: 2.5rem;
   color: white;
   font-weight: 700;
-  padding: 0.8rem 1.875rem;
-  font-size: 1.2rem;
+  padding: 0.8rem 1.5rem;
+  font-size: 1rem;
   width: fit-content;
 
   &:hover {
