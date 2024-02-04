@@ -1,17 +1,48 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import PersonalizationQuiz from "../../components/PersonalizationQuiz";
+import Timeline from "../../components/Timeline";
 
 const Wrapper = styled.div`
-  padding: 2rem 1rem;
-  border: 2px solid black;
+  padding: 0rem 1rem 2rem 1rem;
+
+  h1 {
+    font-weight: 500;
+    font-size: 3rem;
+  }
+`;
+
+const Top = styled.div`
+  display: flex;
+`;
+
+const LeftSide = styled.div`
+  width: 100%;
+`;
+
+const RightSide = styled.div`
+  width: 100%;
 `;
 
 const Dashboard = () => {
+  const [personalizationOptions, setPersonalizationOptions] = useState({});
+
+  // Termporary, just to print the personalization options
+  useEffect(() => {
+    console.log(personalizationOptions)
+  }, [personalizationOptions])
+
   return (
     <Wrapper>
-      This is the Dashboard at the top of the homepage
-      <PersonalizationQuiz/>
+      <Top>
+        <LeftSide>
+          <h1>ISRAEL-GAZA WAR</h1>
+        </LeftSide>
+        <RightSide>
+          <PersonalizationQuiz setPersonalizationOptions={setPersonalizationOptions}/>
+        </RightSide>
+      </Top>
+      <Timeline />
     </Wrapper>
   );
 }

@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 const Wrapper = styled.div`
   padding: 2rem 1rem;
-  border: 2px solid black;
+  border-top: 1px solid black;
 `;
 
 const ArticleFeed = () => {
