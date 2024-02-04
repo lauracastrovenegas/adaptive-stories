@@ -24,7 +24,7 @@ const Dashboard = () => {
     <Wrapper>
       <Top>
         <LeftSide>
-          <h1>This is the Dashboard at the top of the homepage</h1>
+          <h1>ISRAEL-GAZA WAR</h1>
         </LeftSide>
         <RightSide>
           <PersonalizationQuiz />
