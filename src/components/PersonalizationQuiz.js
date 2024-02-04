@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import Button from "./Button";
 import Checkbox from "./Checkbox";
+import { theme } from "../theme.js";
+import { VerticalTimeline, VerticalTimelineElement } from 'react-vertical-timeline-component';
+import 'react-vertical-timeline-component/style.min.css';
 
 const topicsList = [
   "Israeli hostages",
@@ -13,8 +16,31 @@ const topicsList = [
   "Global demonstration"
 ];
 
+const events = [
+  {
+    id: 0,
+    title: "Israeli leaders vow to continue war in reactions to ICJ ruling",
+    date: "January 26, 2024"
+  },
+  {
+    id: 1,
+    title: "U.N. court orders Israel to halt killings in Gaza",
+    date: "January 24, 2024"
+  },
+  {
+    id: 2,
+    title: "Two more attacks on US positions in Iraq",
+    date: "January 23, 2024"
+  },
+  {
+    id: 3,
+    title: "Biden to deploy CIA director to help broker Gaza deal",
+    date: "January 20, 2024"
+  }
+]
+
 const Wrapper = styled.div`
-  display: flex;
+  display: ${props => props.hidden ? "none" : "flex"};
   flex-direction: column;
   gap: 20px;
   width: fit-content;
@@ -24,10 +50,16 @@ const Wrapper = styled.div`
   margin: 2rem;
   margin: 2rem auto;
   box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.30);
+  background-color: #f9f9f9;
 
-  h2 {
+  h3 {
     font-family: 'Libre Franklin', sans-serif;
     font-weight: 600;
+    font-size: 1.2rem;
+  }
+
+  &.hidden {
+    display: none;
   }
 `;
 
@@ -48,26 +80,95 @@ const Row = styled.div`
 
 const Timeline = styled.div`
 
+  .vertical-timeline{
+    padding: 0.5rem 0;
+  }
+
+  .vertical-timeline::before {
+    left: 6px;
+  }
+
+  .vertical-timeline-element {
+    margin: 1rem 0;
+
+    p {
+      font-size: 14px;
+      line-height: 1;
+    }
+
+    :hover {
+      cursor: pointer;
+    }
+  }
+
+  .date {
+    font-size: 12px;
+  }
+
+  .icon {
+    background: ${theme.color.blue};
+    height: 15px;
+    width: 15px;
+    top: 15px;
+  }
+
+  .textBox {
+    background-color: white;
+    border: 1px solid ${theme.color.blue};
+    border-radius: 10px;
+    padding: 0 1rem;
+  }
+
+  .selected {
+    background-color: ${theme.color.blue};
+    color: white;
+  }
 `;
 
-const PersonalizationQuiz = () => {
+const PersonalizationQuiz = ({ setPersonalizationOptions }) => {
+  const [topicsSelected, setTopicsSelected] = useState([]);
+  const [dateSelected, setDateSelected] = useState(-1);
+  const [hidden, setHidden] = useState(false);
+
+  const handleSubmitOptions = () => {
+    setPersonalizationOptions({
+      favoriteTopics: topicsSelected,
+      startReadingDate: dateSelected
+    })
+    setHidden(true);
+  }
+
   return (
-    <Wrapper>
+    <Wrapper hidden={hidden}>
       <Row>
         <Topics>
-          <h2>I want to learn more about...</h2>
-          {topicsList.map(item => (
-            <Checkbox labelText={item} />
+          <h3>I want to learn more about...</h3>
+          {topicsList.map((item, idx) => (
+            <Checkbox labelText={item} onSelect={() => setTopicsSelected([...topicsSelected, idx])} />
           ))}
         </Topics>
         <Timeline>
-          <h2>I want to see updates starting from...</h2>
-
+          <h3>I want to see updates starting from...</h3>
+          <VerticalTimeline layout="1-column-left" lineColor={theme.color.blue}>
+            {events.map((event, idx) => (
+              <VerticalTimelineElement
+                className="vertical-timeline-element--work"
+                contentArrowStyle={{ borderRight: "8px solid " + theme.color.blue }}
+                date={event.date}
+                dateClassName="date"
+                iconClassName="icon"
+                textClassName={"textBox" + (idx === dateSelected ? " selected" : "")}
+                onTimelineElementClick={() => idx === dateSelected ? setDateSelected(-1) : setDateSelected(idx)}
+              >
+                <p>{event.title}</p>
+              </VerticalTimelineElement>
+            ))}
+          </VerticalTimeline>
         </Timeline>
       </Row>
       <Row className="buttons">
-        <Button secondary type="submit">Skip Personalization</Button>
-        <Button type="submit">Start Reading</Button>
+        <Button secondary onClick={() => setHidden(true)}>Skip Personalization</Button>
+        <Button onClick={() => handleSubmitOptions()}>Start Reading</Button>
       </Row>
     </Wrapper>
   );
