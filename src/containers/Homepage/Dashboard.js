@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import PersonalizationQuiz from "../../components/PersonalizationQuiz";
 import Timeline from "../../components/Timeline";
@@ -20,6 +20,13 @@ const RightSide = styled.div`
 `;
 
 const Dashboard = () => {
+  const [personalizationOptions, setPersonalizationOptions] = useState({});
+
+  // Termporary, just to print the personalization options
+  useEffect(() => {
+    console.log(personalizationOptions)
+  }, [personalizationOptions])
+
   return (
     <Wrapper>
       <Top>
@@ -27,7 +34,7 @@ const Dashboard = () => {
           <h1>ISRAEL-GAZA WAR</h1>
         </LeftSide>
         <RightSide>
-          <PersonalizationQuiz />
+          <PersonalizationQuiz setPersonalizationOptions={setPersonalizationOptions}/>
         </RightSide>
       </Top>
       <Timeline />
