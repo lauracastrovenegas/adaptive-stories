@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
-import { theme } from '../theme.ts';
+import { theme } from '../theme';
 
 const CheckboxContainer = styled.div`
   margin: 2px 0px;
@@ -56,12 +56,14 @@ const Label = styled.span`
 const Checkbox = ({
   className,
   labelText,
+  onSelect,
   ...props
 }) => {
   const [isChecked, setChecked] = useState(false);
 
   const handleCheckboxChange = (e) => {
     setChecked(e.target.checked)
+    onSelect()
   };
 
   return (
