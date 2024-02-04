@@ -1,28 +1,19 @@
 import React from "react";
 import styled from "styled-components";
 import Carousel from 'react-material-ui-carousel'
-import { Paper, Button, Link } from '@mui/material'
-
-const Wrapper = styled.div`
-  flex: 1;
-  display: flex;
-  padding: 2rem;
-  border: 1px solid grey;
-  border-radius: 15px;
-  margin: 2rem;
-`;
-
+import { Paper, Link } from '@mui/material'
 
 const CarouselWrapper = styled.div`
   flex: 1;
-  width: 40%;
+  width: 80%;
   margin: 1rem;
 `;
 
 const ImageAndCards = () => {
   var items = [
     {
-      imageURL: "https://www.washingtonpost.com/wp-apps/imrs.php?src=https://arc-anglerfish-washpost-prod-washpost.s3.amazonaws.com/public/O425AO2UTWGNZESKCZFRDJ46AI_size-normalized.jpg&w=1200"
+      imageURL: "https://www.washingtonpost.com/wp-apps/imrs.php?src=https://arc-anglerfish-washpost-prod-washpost.s3.amazonaws.com/public/O425AO2UTWGNZESKCZFRDJ46AI_size-normalized.jpg&w=1200",
+      altText: "photo depicting people gathering outside in destruction",
     },
     {
       name: "May 2021 Conflict",
@@ -77,8 +68,8 @@ function Item(props)
 {
     return (
       props.item.imageURL ?
-        <Paper style={{maxHeight: "20rem"}}>
-            <img src={props.item.imageURL} style={{maxHeight: "20rem"}}/>
+        <Paper style={{maxHeight: "22rem"}}>
+            <img src={props.item.imageURL} style={{maxHeight: "22rem"}} alt={props.item.altText}/>
         </Paper>
       :
         <Paper style={{paddingLeft: '1rem', paddingRight: '1rem', paddingBottom: '1rem', paddingTop: '0.2rem', backgroundColor: "#f5f5f5"}}>

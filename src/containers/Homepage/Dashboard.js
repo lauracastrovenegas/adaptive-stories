@@ -24,10 +24,6 @@ const LeftSide = styled.div`
 const RightSide = styled.div`
   width: 100%;
 `;
-const InnerWrapper = styled.div`
-  display: flex;
-  flex-direction: horizontal;
-`;
 
 const Dashboard = () => {
   const [personalizationOptions, setPersonalizationOptions] = useState({});
