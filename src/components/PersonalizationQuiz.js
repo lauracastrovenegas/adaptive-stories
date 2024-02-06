@@ -132,12 +132,14 @@ const Timeline = styled.div`
 const PersonalizationQuiz = ({ setPersonalizationOptions }) => {
   const [topicsSelected, setTopicsSelected] = useState([]);
   const [dateSelected, setDateSelected] = useState(-1);
+  const [showMyUpdates, setShowMyUpdates] = useState(false);
   const [hidden, setHidden] = useState(false);
 
   const handleSubmitOptions = () => {
     setPersonalizationOptions({
       favoriteTopics: topicsSelected,
-      startReadingDate: dateSelected
+      startReadingDate: dateSelected,
+      showMyUpdates: true,
     })
     setHidden(true);
   }
@@ -172,7 +174,7 @@ const PersonalizationQuiz = ({ setPersonalizationOptions }) => {
       </Row>
       <Row className="buttons">
         <Button secondary onClick={() => setHidden(true)}>Skip Personalization</Button>
-        <Button onClick={() => handleSubmitOptions()}>Start Reading</Button>
+        <Button onClick={() => { handleSubmitOptions(); setShowMyUpdates(true) }}>Start Reading</Button>
       </Row>
     </Wrapper>
   );
