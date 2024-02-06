@@ -46,11 +46,10 @@ const Wrapper = styled.div`
   gap: 20px;
   width: fit-content;
   padding: 2rem;
-  border: 1px solid lightgray;
+  border: 1px solid rgba(233,233,233,1);
   border-radius: 15px;
-  margin: 2rem;
-  margin: 2rem auto;
-  box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.30);
+  margin: 0rem auto 2rem auto;
+  background-color: white;
 
   h3 {
     font-family: 'Libre Franklin', sans-serif;

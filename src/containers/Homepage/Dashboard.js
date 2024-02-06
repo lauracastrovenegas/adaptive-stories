@@ -6,11 +6,7 @@ import ImageAndCards from "../../components/ImageAndCards";
 
 const Wrapper = styled.div`
   padding: 0rem 1rem 2rem 1rem;
-
-  h1 {
-    font-weight: 500;
-    font-size: 3rem;
-  }
+  border-bottom: 1px solid rgb(212,212,212);
 `;
 
 const Top = styled.div`
@@ -37,7 +33,6 @@ const Dashboard = () => {
     <Wrapper>
       <Top>
         <LeftSide>
-          <h1>ISRAEL-GAZA WAR</h1>
           <ImageAndCards/>
         </LeftSide>
         <RightSide>
