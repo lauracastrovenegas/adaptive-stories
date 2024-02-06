@@ -1,16 +1,40 @@
 import React from "react";
 import styled from "styled-components";
+import ArticleCard from "../../components/ArticleCard";
+import { articleData } from "../../data/articleData";
+import FAQs from "../../components/FAQs";
+import SearchBar from "../../components/SearchBar";
 
 const Wrapper = styled.div`
-  padding: 2rem 1rem;
-  border-top: 1px solid black;
+  display: flex;
+  padding: 0rem 3rem 2rem 3rem;
+  gap: 1rem;
+`;
+
+const Articles = styled.div`
+  flex: 2;
+`;
+
+const SearchWrapper = styled.div`
+  padding: 2rem 3rem 0rem 3rem;
 `;
 
 const ArticleFeed = () => {
   return (
-    <Wrapper>
-      This is the Article Feed at the bottom of the homepage
-    </Wrapper>
+    <div>
+      <SearchWrapper>
+        <SearchBar />
+      </SearchWrapper>
+      <Wrapper>
+        <Articles>
+          {articleData.map((article) => (
+            <ArticleCard article={article} />
+          ))}
+        </Articles>
+        <FAQs />
+      </Wrapper>
+    </div>
+
   );
 }
 

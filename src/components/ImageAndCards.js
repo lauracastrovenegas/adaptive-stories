@@ -7,6 +7,10 @@ const CarouselWrapper = styled.div`
   flex: 1;
   width: 80%;
   margin: 1rem;
+
+  img {
+    object-fit: cover;
+  }
 `;
 
 const ImageAndCards = () => {

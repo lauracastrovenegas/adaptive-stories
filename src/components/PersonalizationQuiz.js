@@ -5,39 +5,7 @@ import Checkbox from "./Checkbox";
 import { theme } from "../theme.js";
 import { VerticalTimeline, VerticalTimelineElement } from 'react-vertical-timeline-component';
 import 'react-vertical-timeline-component/style.min.css';
-
-const topicsList = [
-  "Israeli hostages",
-  "Gaza devastation",
-  "ICJ genocide case",
-  "Who are the Huthis?",
-  "U.S. role in Israel-Hamas War",
-  "History of Israel-Palestine Conflict",
-  "Global demonstration"
-];
-
-const events = [
-  {
-    id: 0,
-    title: "Israeli leaders vow to continue war in reactions to ICJ ruling",
-    date: "January 26, 2024"
-  },
-  {
-    id: 1,
-    title: "U.N. court orders Israel to halt killings in Gaza",
-    date: "January 24, 2024"
-  },
-  {
-    id: 2,
-    title: "Two more attacks on US positions in Iraq",
-    date: "January 23, 2024"
-  },
-  {
-    id: 3,
-    title: "Biden to deploy CIA director to help broker Gaza deal",
-    date: "January 20, 2024"
-  }
-]
+import { topicsList, events } from '../data/generalData.js';
 
 const Wrapper = styled.div`
   flex: 2;
@@ -46,11 +14,10 @@ const Wrapper = styled.div`
   gap: 20px;
   width: fit-content;
   padding: 2rem;
-  border: 1px solid lightgray;
+  border: 1px solid rgba(233,233,233,1);
   border-radius: 15px;
-  margin: 2rem;
-  margin: 2rem auto;
-  box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.30);
+  margin: 0rem auto 2rem auto;
+  background-color: white;
 
   h3 {
     font-family: 'Libre Franklin', sans-serif;
@@ -138,7 +105,8 @@ const PersonalizationQuiz = ({ setPersonalizationOptions }) => {
   const handleSubmitOptions = () => {
     setPersonalizationOptions({
       favoriteTopics: topicsSelected,
-      startReadingDate: dateSelected
+      startReadingDate: dateSelected,
+      showMyUpdates: true,
     })
     setHidden(true);
   }
@@ -173,7 +141,7 @@ const PersonalizationQuiz = ({ setPersonalizationOptions }) => {
       </Row>
       <Row className="buttons">
         <Button secondary onClick={() => setHidden(true)}>Skip Personalization</Button>
-        <Button onClick={() => handleSubmitOptions()}>Start Reading</Button>
+        <Button onClick={() => { handleSubmitOptions() }}>Start Reading</Button>
       </Row>
     </Wrapper>
   );

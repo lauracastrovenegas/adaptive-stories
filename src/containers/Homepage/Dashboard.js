@@ -3,14 +3,12 @@ import styled from "styled-components";
 import PersonalizationQuiz from "../../components/PersonalizationQuiz";
 import Timeline from "../../components/Timeline";
 import ImageAndCards from "../../components/ImageAndCards";
+import MyUpdates from "../../components/MyUpdates";
 
 const Wrapper = styled.div`
-  padding: 0rem 1rem 2rem 1rem;
-
-  h1 {
-    font-weight: 500;
-    font-size: 3rem;
-  }
+  padding: 0rem 3rem 2rem 3rem;
+  border-bottom: 1px solid rgb(212,212,212);
+  // background-color: #111111;
 `;
 
 const Top = styled.div`
@@ -25,23 +23,25 @@ const RightSide = styled.div`
   width: 100%;
 `;
 
-const Dashboard = () => {
-  const [personalizationOptions, setPersonalizationOptions] = useState({});
-
+const Dashboard = ({personalizationOptions, setPersonalizationOptions}) => {
+  const [startReading, clickedStartReading] = useState(false);
   // Termporary, just to print the personalization options
   useEffect(() => {
-    console.log(personalizationOptions)
-  }, [personalizationOptions])
+    if (personalizationOptions.showMyUpdates) {
+      clickedStartReading(true);
+    }
+    console.log(startReading)
+  }, [personalizationOptions, startReading])
 
   return (
     <Wrapper>
       <Top>
         <LeftSide>
-          <h1>ISRAEL-GAZA WAR</h1>
           <ImageAndCards/>
         </LeftSide>
         <RightSide>
-          <PersonalizationQuiz setPersonalizationOptions={setPersonalizationOptions}/>
+          <PersonalizationQuiz setPersonalizationOptions={setPersonalizationOptions} />
+          {startReading && <MyUpdates></MyUpdates>}
         </RightSide>
       </Top>
       <Timeline />
