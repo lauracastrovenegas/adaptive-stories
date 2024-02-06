@@ -1,5 +1,7 @@
 import React from "react";
 import styled from "styled-components";
+import ArticleCard from "../../components/ArticleCard";
+import { articleData } from "../../data/articleData";
 
 const Wrapper = styled.div`
   padding: 2rem 1rem;
@@ -9,7 +11,10 @@ const Wrapper = styled.div`
 const ArticleFeed = () => {
   return (
     <Wrapper>
-      This is the Article Feed at the bottom of the homepage
+      {articleData.map((article) => (
+        <ArticleCard article={article} />
+      )
+      )}
     </Wrapper>
   );
 }
