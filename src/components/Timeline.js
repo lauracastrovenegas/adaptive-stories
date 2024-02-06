@@ -113,7 +113,7 @@ const Timeline = () => {
               },
             }}
           >
-            <Box sx={{...style, bottom: modalPosition.top - 420, left: modalPosition.left > 200 ? modalPosition.left - 310 : 30}}>
+            <Box sx={{...style, top: modalPosition.top - 300, left: modalPosition.left > 200 ? modalPosition.left - 310 : 30}}>
               <Typography variant="h5" component="h2">
                 {event.eventTitle}
               </Typography>
