@@ -38,7 +38,7 @@ const ImageWrapper = styled.div`
 
 const ArticleCard = ({ article }) => {
   const date = new Date(article.publishedDate)
-  console.log(date)
+  
   return (
     <CardWrapper>
       <Content>

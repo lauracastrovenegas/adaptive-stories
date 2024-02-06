@@ -3,12 +3,12 @@ import styled from "styled-components";
 import PersonalizationQuiz from "../../components/PersonalizationQuiz";
 import Timeline from "../../components/Timeline";
 import ImageAndCards from "../../components/ImageAndCards";
-import Button from "../../components/Button";
 import MyUpdates from "../../components/MyUpdates";
 
 const Wrapper = styled.div`
-  padding: 0rem 1rem 2rem 1rem;
+  padding: 0rem 3rem 2rem 3rem;
   border-bottom: 1px solid rgb(212,212,212);
+  // background-color: #111111;
 `;
 
 const Top = styled.div`
@@ -23,8 +23,7 @@ const RightSide = styled.div`
   width: 100%;
 `;
 
-const Dashboard = () => {
-  const [personalizationOptions, setPersonalizationOptions] = useState({});
+const Dashboard = ({personalizationOptions, setPersonalizationOptions}) => {
   const [startReading, clickedStartReading] = useState(false);
   // Termporary, just to print the personalization options
   useEffect(() => {

@@ -1,20 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-
-const faqs = [
-  {
-    question: "How have international actors, such as the United Nations, responded to the conflict?",
-    answer: "The international response varies, but many call for a peaceful resolution, condemn violence, and advocate for a two-state solution."
-  },
-  {
-    question: "When did the Hamas-Israel conflict begin, and what are its historical origins?",
-    answer: "The conflict has deep historical roots but escalated with the founding of Hamas in 1987 and its subsequent rise in Gaza."
-  },
-  {
-    question: "What is the root cause of the conflict between Hamas and Israel?",
-    answer: "The conflict has deep historical roots, including disputes over land, identity, and the establishment of the state of Israel in 1948."
-  }
-]
+import {faqs} from '../data/generalData.js';
 
 const FAQContainer = styled.div`
   flex: 1;

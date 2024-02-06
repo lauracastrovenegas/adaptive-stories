@@ -7,7 +7,7 @@ import SearchBar from "../../components/SearchBar";
 
 const Wrapper = styled.div`
   display: flex;
-  padding: 0rem 1rem 2rem 1rem;
+  padding: 0rem 3rem 2rem 3rem;
   gap: 1rem;
 `;
 
@@ -16,7 +16,7 @@ const Articles = styled.div`
 `;
 
 const SearchWrapper = styled.div`
-  padding: 2rem 1rem 0rem 1rem;
+  padding: 2rem 3rem 0rem 3rem;
 `;
 
 const ArticleFeed = () => {

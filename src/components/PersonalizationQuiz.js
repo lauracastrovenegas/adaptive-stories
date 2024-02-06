@@ -5,39 +5,7 @@ import Checkbox from "./Checkbox";
 import { theme } from "../theme.js";
 import { VerticalTimeline, VerticalTimelineElement } from 'react-vertical-timeline-component';
 import 'react-vertical-timeline-component/style.min.css';
-
-const topicsList = [
-  "Israeli hostages",
-  "Gaza devastation",
-  "ICJ genocide case",
-  "Who are the Huthis?",
-  "U.S. role in Israel-Hamas War",
-  "History of Israel-Palestine Conflict",
-  "Global demonstration"
-];
-
-const events = [
-  {
-    id: 0,
-    title: "Israeli leaders vow to continue war in reactions to ICJ ruling",
-    date: "January 26, 2024"
-  },
-  {
-    id: 1,
-    title: "U.N. court orders Israel to halt killings in Gaza",
-    date: "January 24, 2024"
-  },
-  {
-    id: 2,
-    title: "Two more attacks on US positions in Iraq",
-    date: "January 23, 2024"
-  },
-  {
-    id: 3,
-    title: "Biden to deploy CIA director to help broker Gaza deal",
-    date: "January 20, 2024"
-  }
-]
+import { topicsList, events } from '../data/generalData.js';
 
 const Wrapper = styled.div`
   flex: 2;
@@ -132,7 +100,6 @@ const Timeline = styled.div`
 const PersonalizationQuiz = ({ setPersonalizationOptions }) => {
   const [topicsSelected, setTopicsSelected] = useState([]);
   const [dateSelected, setDateSelected] = useState(-1);
-  const [showMyUpdates, setShowMyUpdates] = useState(false);
   const [hidden, setHidden] = useState(false);
 
   const handleSubmitOptions = () => {
@@ -174,7 +141,7 @@ const PersonalizationQuiz = ({ setPersonalizationOptions }) => {
       </Row>
       <Row className="buttons">
         <Button secondary onClick={() => setHidden(true)}>Skip Personalization</Button>
-        <Button onClick={() => { handleSubmitOptions(); setShowMyUpdates(true) }}>Start Reading</Button>
+        <Button onClick={() => { handleSubmitOptions() }}>Start Reading</Button>
       </Row>
     </Wrapper>
   );
