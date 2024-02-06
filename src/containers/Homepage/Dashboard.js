@@ -23,7 +23,7 @@ const RightSide = styled.div`
   width: 100%;
 `;
 
-const Dashboard = ({personalizationOptions, setPersonalizationOptions}) => {
+const Dashboard = ({ personalizationOptions, setPersonalizationOptions }) => {
   const [startReading, clickedStartReading] = useState(false);
   // Termporary, just to print the personalization options
   useEffect(() => {
@@ -37,11 +37,11 @@ const Dashboard = ({personalizationOptions, setPersonalizationOptions}) => {
     <Wrapper>
       <Top>
         <LeftSide>
-          <ImageAndCards/>
+          <ImageAndCards />
         </LeftSide>
         <RightSide>
           <PersonalizationQuiz setPersonalizationOptions={setPersonalizationOptions} />
-          {startReading && <MyUpdates></MyUpdates>}
+          {startReading && <MyUpdates selected_idx={personalizationOptions.startReadingDate}></MyUpdates>}
         </RightSide>
       </Top>
       <Timeline />
