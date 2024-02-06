@@ -4,6 +4,9 @@ import PersonalizationQuiz from "../../components/PersonalizationQuiz";
 import Timeline from "../../components/Timeline";
 import ImageAndCards from "../../components/ImageAndCards";
 import MyUpdates from "../../components/MyUpdates";
+import WhatYouNeedToKnow from "../../components/WhatYouNeedToKnow";
+import KeyUpdates from "../../components/KeyUpdates";
+import Button from "../../components/Button";
 
 const Wrapper = styled.div`
   padding: 0rem 3rem 2rem 3rem;
@@ -23,8 +26,9 @@ const RightSide = styled.div`
   width: 100%;
 `;
 
-const Dashboard = ({personalizationOptions, setPersonalizationOptions}) => {
+const Dashboard = ({ personalizationOptions, setPersonalizationOptions }) => {
   const [startReading, clickedStartReading] = useState(false);
+  const [showQuiz, setShowQuiz] = useState(false);
   // Termporary, just to print the personalization options
   useEffect(() => {
     if (personalizationOptions.showMyUpdates) {
@@ -37,10 +41,21 @@ const Dashboard = ({personalizationOptions, setPersonalizationOptions}) => {
     <Wrapper>
       <Top>
         <LeftSide>
-          <ImageAndCards/>
+          <ImageAndCards />
         </LeftSide>
         <RightSide>
-          <PersonalizationQuiz setPersonalizationOptions={setPersonalizationOptions} />
+          {showQuiz ? <PersonalizationQuiz setPersonalizationOptions={setPersonalizationOptions} /> :
+            <>
+              <div style={{ display: 'flex' , gap: '2rem'}}>
+                <WhatYouNeedToKnow style={{ flex: '1' }} />
+                <KeyUpdates style={{ flex: '1' }} />
+              </div>
+              <div style={{margin: '2rem 0', color: "white"}}>
+                <div style={{marginBottom: '0.5rem'}}> Already have knowledge on this topic? </div>
+                <Button onClick={() => setShowQuiz(true)}>Personalize the content</Button>
+              </div>
+            </>
+          }
           {startReading && <MyUpdates></MyUpdates>}
         </RightSide>
       </Top>
