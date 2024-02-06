@@ -8,7 +8,7 @@ import MyUpdates from "../../components/MyUpdates";
 const Wrapper = styled.div`
   padding: 0rem 3rem 2rem 3rem;
   border-bottom: 1px solid rgb(212,212,212);
-  // background-color: #111111;
+  background-color: #111111;
 `;
 
 const Top = styled.div`
