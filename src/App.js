@@ -3,6 +3,7 @@ import styled from "styled-components";
 import Dashboard from "./containers/Homepage/Dashboard";
 import ArticleFeed from "./containers/Homepage/ArticleFeed";
 import Navbar from './components/Navbar';
+import IconButtonGroup from "./components/IconButtonGroup";
 
 const PageWrapper = styled.div`
   padding: 0rem 0rem;
@@ -15,6 +16,11 @@ const App = () => {
   return (
     <PageWrapper>
       <Navbar 
+        personalizationOptions={personalizationOptions} 
+        subtopicSelected={subtopicSelected}
+        setSubtopicSelected={setSubtopicSelected}
+      />
+      <IconButtonGroup 
         personalizationOptions={personalizationOptions} 
         subtopicSelected={subtopicSelected}
         setSubtopicSelected={setSubtopicSelected}
