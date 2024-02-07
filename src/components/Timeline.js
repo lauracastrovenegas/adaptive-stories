@@ -28,7 +28,7 @@ const VALUES = [
 const EVENTS = [
   {
     eventTitle: "Six-Day War",
-    eventDescription: "The Six-Day War occurred between Israel and its neighboring Arab states (Egypt, Jordan, and Syria). The war resulted in a swift and decisive Israeli victory, leading to the occupation of the West Bank, East Jerusalem, the Gaza Strip, the Sinai Peninsula, and the Golan Heights."
+    eventDescription: "The Six-Day War occurred between Israel and its neighboring Arab states. The war resulted in a swift and decisive Israeli victory, leading to the occupation of the West Bank, East Jerusalem, the Gaza Strip, the Sinai Peninsula, and the Golan Heights."
   },
   {
     eventTitle: "Hamas Takes Control of Gaza",
@@ -47,7 +47,7 @@ const EVENTS = [
     eventDescription: "Israel launches a large-scale military operation in Gaza, aiming to stop rocket fire and destroy Hamas tunnels. The conflict results in high casualties and widespread destruction."
   },
   {
-    eventTitle: "Start of Great March of Return Protests",
+    eventTitle: "Great March of Return Protests",
     eventDescription: "Palestinians in Gaza begin weekly protests along the border with Israel, demanding the right of return for refugees and an end to the blockade. The protests lead to clashes with Israeli forces and numerous casualties."
   },
   {
@@ -66,9 +66,6 @@ const EVENTS = [
 
 const style = {
   position: 'absolute',
-  top: `${({ top }) => top}px`,
-  left: `${({ left }) => left}px`,
-  // transform: 'translate(-50%, -50%)',
   width: 400,
   bgcolor: 'background.paper',
   borderRadius: 4,
@@ -79,17 +76,18 @@ const style = {
 const Timeline = () => {
   const [value, setValue] = useState(0);
   const [clicked, setClicked] = useState(false);
-  const [modalPosition, setModalPosition] = useState({ left: 0, top: 0 });
+  const [modalPosition, setModalPosition] = useState({ left: 0, bottom: 0 });
   const handleClose = () => setClicked(false);
   
   const updateModalPosition = (e) => {
     const { clientX, clientY } = e;
-    setModalPosition({ left: clientX, top: clientY });
-    console.log(clientX, clientY)
+    const scrollY = window.scrollY; // Get the vertical scroll position
+    setModalPosition({ left: clientX, top: clientY, scroll: clientY + scrollY });
   }
+  console.log(modalPosition.top)
   return (
       <TimelineWrapper>
-        <div onClick={updateModalPosition} style={{ width: '100%', height: '6rem', margin: '1rem auto' }}>
+        <div onClick={updateModalPosition} style={{ width: '100%', height: '6rem', margin: '8rem auto' }}>
             <HorizontalTimeline
               index={value}
               className="item"
@@ -99,31 +97,41 @@ const Timeline = () => {
               }}
               values={ VALUES } />
         </div>
-        {clicked && EVENTS.map((event, i) => 
-          <Modal
-            className="modal"
-            key={i}
-            open={i === value}
-            onClose={handleClose}
-            slotProps={{
-              backdrop: {
-                sx: {
-                  backgroundColor: 'transparent',
+        {clicked && EVENTS.map((event, i) =>
+          <div>
+            <div 
+              style={{ 
+                borderLeft: '6px solid #006CB8', 
+                height: '1.5rem', 
+                position: 'absolute', 
+                left: modalPosition.left, 
+                top: modalPosition.scroll - 80
+              }}
+            ></div>
+            <Modal
+              className="modal"
+              key={i}
+              open={i === value}
+              onClose={handleClose}
+              slotProps={{
+                backdrop: {
+                  sx: {
+                    backgroundColor: 'transparent',
+                  },
                 },
-              },
-            }}
-          >
-            <Box sx={{...style, top: modalPosition.top - 300, left: modalPosition.left > 200 ? modalPosition.left - 310 : 30}}>
-              <Typography variant="h5" component="h2">
-                {event.eventTitle}
-              </Typography>
-              <Typography sx={{ mt: 2 }}>
-                {event.eventDescription}
-              </Typography>
-            </Box>
-          </Modal>
+              }}
+            >
+              <Box sx={{...style, top: modalPosition.top - 320, left: modalPosition.left > 200 ? modalPosition.left - 310 : 30}}>
+                <Typography variant="h5" component="h2">
+                  {event.eventTitle}
+                </Typography>
+                <Typography sx={{ mt: 2 }}>
+                  {event.eventDescription}
+                </Typography>
+              </Box>
+            </Modal>
+          </div>
         )}
-        
       </TimelineWrapper>
   );
 };
