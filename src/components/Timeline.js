@@ -6,7 +6,9 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 
 const TimelineWrapper = styled.div`
+  border: 1px solid white;
   padding 2rem;
+  color: white;
 `;
 
 /*

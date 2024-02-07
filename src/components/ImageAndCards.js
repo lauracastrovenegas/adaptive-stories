@@ -72,11 +72,10 @@ function Item(props)
 {
     return (
       props.item.imageURL ?
-        <Paper style={{height: "22rem"}}>
-            <img src={props.item.imageURL} style={{height: "22rem"}} alt={props.item.altText}/>
+        <Paper style={{height: "22rem", borderRadius: '15px', backgroundImage: "url(" + props.item.imageURL+ ")"}}>
         </Paper>
       :
-        <Paper style={{height: "21rem", paddingLeft: '1rem', paddingRight: '1rem', paddingBottom: '1rem', paddingTop: '0.2rem', backgroundColor: "#f5f5f5"}}>
+        <Paper style={{height: "21rem", paddingLeft: '1rem', paddingRight: '1rem', paddingBottom: '1rem', paddingTop: '0.2rem', backgroundColor: "white", borderRadius: '15px'}}>
             <h2>{props.item.name}</h2>
             <p>{props.item.description}</p>
 
