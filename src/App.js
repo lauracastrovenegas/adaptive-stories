@@ -12,6 +12,7 @@ const PageWrapper = styled.div`
 const App = () => {
   const [personalizationOptions, setPersonalizationOptions] = useState({});
   const [subtopicSelected, setSubtopicSelected] = useState("All");
+  const [showQuiz, setShowQuiz] = useState(false);
 
   return (
     <PageWrapper>
@@ -20,14 +21,15 @@ const App = () => {
         subtopicSelected={subtopicSelected}
         setSubtopicSelected={setSubtopicSelected}
       />
-      <IconButtonGroup 
-        personalizationOptions={personalizationOptions} 
-        subtopicSelected={subtopicSelected}
-        setSubtopicSelected={setSubtopicSelected}
+      <IconButtonGroup
+        showQuiz={showQuiz}
+        setShowQuiz={setShowQuiz}
       />
       <Dashboard 
         personalizationOptions={personalizationOptions} 
         setPersonalizationOptions={setPersonalizationOptions} 
+        showQuiz={showQuiz}
+        setShowQuiz={setShowQuiz}
       />
       <ArticleFeed />
     </PageWrapper>
