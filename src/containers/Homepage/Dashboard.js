@@ -39,9 +39,8 @@ const PersonalizeContentButton = styled.div`
   color: white;
 `;
 
-const Dashboard = ({ personalizationOptions, setPersonalizationOptions }) => {
+const Dashboard = ({ personalizationOptions, setPersonalizationOptions, showQuiz, setShowQuiz }) => {
   const [startReading, clickedStartReading] = useState(false);
-  const [showQuiz, setShowQuiz] = useState(false);
 
   // Termporary, just to print the personalization options
   useEffect(() => {
@@ -54,7 +53,7 @@ const Dashboard = ({ personalizationOptions, setPersonalizationOptions }) => {
     }
 
     console.log(startReading)
-  }, [personalizationOptions, startReading])
+  }, [personalizationOptions, startReading, setShowQuiz])
 
   return (
     <Wrapper>
@@ -65,9 +64,9 @@ const Dashboard = ({ personalizationOptions, setPersonalizationOptions }) => {
         <RightSide>
           {showQuiz ? <PersonalizationQuiz setPersonalizationOptions={setPersonalizationOptions} /> :
             !startReading ?
-            <DashboardContent setShowQuiz={setShowQuiz}/> : null
+            <DashboardContent setShowQuiz={setShowQuiz} startReading={startReading}/> : null
           }
-          {startReading && (personalizationOptions.favoriteTopics?.length > 0 || personalizationOptions.startReadingDate !== -1) ? <MyUpdates></MyUpdates> : (startReading && !showQuiz ? <DashboardContent setShowQuiz={setShowQuiz}/> : null)}
+          {startReading && (personalizationOptions.favoriteTopics?.length > 0 || personalizationOptions.startReadingDate !== -1) ? <MyUpdates></MyUpdates> : (startReading && !showQuiz ? <DashboardContent setShowQuiz={setShowQuiz} startReading={startReading}/> : null)}
         </RightSide>
       </Top>
       <Timeline />
@@ -77,17 +76,17 @@ const Dashboard = ({ personalizationOptions, setPersonalizationOptions }) => {
 
 export default Dashboard;
 
-const DashboardContent = ({setShowQuiz}) => {
-  return (
+const DashboardContent = ({setShowQuiz, startReading}) => {
+    return (
     <>
       <ContentBoxes>
         <WhatYouNeedToKnow />
         <KeyUpdates />
       </ContentBoxes>
-      <PersonalizeContentButton>
+      {!startReading && <PersonalizeContentButton>
         <div style={{ marginBottom: '0.5rem' }}> Already have knowledge on this topic? </div>
         <Button onClick={() => setShowQuiz(true)}>Personalize the content</Button>
-      </PersonalizeContentButton>
+      </PersonalizeContentButton>}
     </>
   )
 }
