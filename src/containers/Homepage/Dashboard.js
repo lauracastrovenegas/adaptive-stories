@@ -53,7 +53,7 @@ const Dashboard = ({ personalizationOptions, setPersonalizationOptions, showQuiz
     }
 
     console.log(startReading)
-  }, [personalizationOptions, startReading])
+  }, [personalizationOptions, startReading, setShowQuiz])
 
   return (
     <Wrapper>
