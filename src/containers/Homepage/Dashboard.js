@@ -62,11 +62,16 @@ const Dashboard = ({ personalizationOptions, setPersonalizationOptions, showQuiz
           <ImageAndCards />
         </LeftSide>
         <RightSide>
-          {showQuiz ? <PersonalizationQuiz setPersonalizationOptions={setPersonalizationOptions} /> :
-            !startReading ?
-            <DashboardContent setShowQuiz={setShowQuiz} startReading={startReading}/> : null
-          }
-          {startReading && (personalizationOptions.favoriteTopics?.length > 0 || personalizationOptions.startReadingDate !== -1) ? <MyUpdates></MyUpdates> : (startReading && !showQuiz ? <DashboardContent setShowQuiz={setShowQuiz} startReading={startReading}/> : null)}
+          {showQuiz ?
+            <PersonalizationQuiz setPersonalizationOptions={setPersonalizationOptions} />
+            : !startReading ?
+            <DashboardContent setShowQuiz={setShowQuiz} startReading={startReading}/> 
+              : null}
+          {startReading && (personalizationOptions.favoriteTopics?.length > 0 || personalizationOptions.startReadingDate !== -1) ?
+            <MyUpdates />
+            : (startReading && !showQuiz ?
+              <DashboardContent setShowQuiz={setShowQuiz} startReading={startReading}/> 
+              : null)}
         </RightSide>
       </Top>
       <Timeline />
