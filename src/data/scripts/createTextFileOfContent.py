@@ -11,6 +11,8 @@ def process_json_file(input_file, output_file):
     with open(output_file, "w", encoding="utf-8") as file:
         # Iterate through articles and write information to the file
         for article_idx in range(0, len(articles)):
+            
+
             formatted_date = datetime.strptime(articles[article_idx]['publishDate'], "%Y-%m-%dT%H:%M:%S.%fZ").strftime("%A, %B %d, %Y at %I:%M %p")
 
             file.write(f"ARTICLE NUMBER {article_idx + 1}\n\n")
@@ -22,7 +24,7 @@ def process_json_file(input_file, output_file):
             file.write("\n\n---\n\n")  # Add newlines between articles
 
 # Example usage:
-input_file_path = 'processedArticleContent.json'  # Replace with your input file path
-output_file_path = 'articles.txt'  # Replace with your desired output file path
+input_file_path = 'processedArticleContentElection.json'  # Replace with your input file path
+output_file_path = 'electionArticles.txt'  # Replace with your desired output file path
 
 process_json_file(input_file_path, output_file_path)
