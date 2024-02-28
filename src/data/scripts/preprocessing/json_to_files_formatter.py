@@ -1,11 +1,6 @@
 import os
-import urllib
-from bs4 import BeautifulSoup
-from urllib.request import urlopen
 import json
 from collections import defaultdict
-from PIL import Image
-import requests
 import argparse
 from datetime import date, timedelta, datetime
 import json
