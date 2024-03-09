@@ -50,7 +50,9 @@ def run_extract_events():
     dated_events_only = [event for event in sorted_events if event["date"] != 'Date Unknown']
 
     print("DONE")
-    # TODO: SAVE CONTENT TO CACHE
+    # cache
+    with open('./cache/' + filename, 'w') as file:
+        json.dump(dated_events_only, file)
 
     return jsonify({'result': dated_events_only})
 
@@ -108,15 +110,11 @@ def query_gpt(system_prompt, user_prompts, client):
 def extract_events(start_idx, end_idx, sorted_articles):
     print("Processing articles " + str(start_idx) + " to " + str(end_idx-1))
     user_prompts = get_user_prompt(start_idx, end_idx, sorted_articles)
-    print('hi1')
     gpt_output = query_gpt(system_prompt, user_prompts, client)
-    print('hi2')
 
     json_object = json.loads(gpt_output)
-    print('hi3')
 
     events_group = json_object["events"]
-    print('hi4')
 
     return events_group
 
