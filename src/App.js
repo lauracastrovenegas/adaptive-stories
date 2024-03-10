@@ -15,7 +15,7 @@ const App = () => {
   const [subtopicSelected, setSubtopicSelected] = useState("All");
   const [showQuiz, setShowQuiz] = useState(false);
 
-  let page = /[^/]*$/.exec(window.location.href)[0];
+  let page = /[^/]*$/.exec(window.location.href)[1];
 
   if (page === "admin") {
     return (
