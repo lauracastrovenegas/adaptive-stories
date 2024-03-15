@@ -14,14 +14,15 @@ Make sure to create a new branch to make any changes to avoid committing directl
 ### Frontend
 1. Open the terminal and navigate to the project file: `cd adaptive-stories`.
 2. Run `npm start` to run the website on development mode.
-3. Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+3. Open [http://localhost:3000/adaptive-stories](http://localhost:3000/adaptive-stories) to view the dashboard in your browser.
 
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
 
 ### Backend
 1. Open the terminal and navigate to the flask folder: `cd adaptive-stories/flask`.
-2. Run `flask --app app run` or `python -m flask --app app run` to run the development server.
+2. Run `flask --app app run` or `python -m flask --app app run` to run the development server on http://127.0.0.1:5000
+3. Navigate to [http://localhost:3000/admin](http://localhost:3000/admin) to view the admin page.
 
 ## Deploying the site after making changes
 
